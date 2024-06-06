@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth autenticacao;
+   User user;
     EditText emailText, nameText, phoneText, passwordText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +30,31 @@ public class RegisterActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
         setContentView(R.layout.activity_register);
-        initialize();
+
     }
 
     public void initialize(){
-        emailText = findViewById(R.id.email);
-        nameText = findViewById(R.id.name);
-        phoneText = findViewById(R.id.telephone);
-        passwordText = findViewById(R.id.password);
+
 
 
     }
 
     public void register(View view){
 
+        emailText = findViewById(R.id.email);
+        nameText = findViewById(R.id.name);
+        phoneText = findViewById(R.id.telephone);
+        passwordText = findViewById(R.id.password);
 
         autenticacao = Connection.Fireautenticacao();
+String email = emailText.getText().toString();
+String password = passwordText.getText().toString();
+String phone = phoneText.getText().toString();
+String name = nameText.getText().toString();
 
-        autenticacao.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+user = new User(name, email, password, phone);
+        autenticacao.createUserWithEmailAndPassword(user.getEmail(), user.getPassword()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
@@ -59,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-       // startActivity(new Intent(this, ProductsActivity.class));
+
     }
 
     public void login(View view) {

@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
+
     EditText emailTxt, passwordTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +35,16 @@ public class LoginActivity extends AppCompatActivity {
 
     public void initialize(){
 
-        emailTxt = findViewById(R.id.email);
-        passwordTxt  = findViewById(R.id.password);
+
     }
 
     public void login(View view){
+        emailTxt = findViewById(R.id.email);
+        passwordTxt  = findViewById(R.id.password);
 
-        auth.signInWithEmailAndPassword(emailTxt.getText().toString(), passwordTxt.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        String email = emailTxt.getText().toString();
+        String password = passwordTxt.getText().toString();
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
