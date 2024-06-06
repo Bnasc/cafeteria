@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">cafeteria</string>
+    <string name="title">Cafeteria</string>
+    <string name="description">Prove o melhor café da região!</string>
+    <string name="register">Cadastre-se</string>
+    <string name="login">Já possui uma conta? Faça login!</string>
+    <string name="register_description">Cadastre-se! É prático e rápido.</string>
+    <string name="name">Nome completo</string>
+    <string name="email">Email</string>
+    <string name="telephone_number">Telefone</string>
+    <string name="password">Senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="recover_password">Esqueci a minha senha</string>
+    <string name="register_account">Não possui uma conta? Cadastre-se!</string>
+    <string name="forgot_password">Esqueceu a sua senha? Recupere aqui!</string>
+    <string name="recover_password_button">Recuperar senha</string>
+    <string name="back_login_button">Voltar para a tela de login</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_description">Product Description</string>
+    <string name="product_price">R$ 29,90</string>
+</resources>
